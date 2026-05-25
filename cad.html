@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Back-End</title>
+    <script>
+       function pesquisarCep(){
+       const cep = document.getElementById("cep").value
+       const link = "https://viacep.com.br/ws/" + cep + "/json/?callback=preencherEndereco"
+       var script = document.createElement("script")
+       script.src = link
+       document.body.appendChild(script)
+
+    }
+    function preencherEndereco(conteudo){
+        resposta.textContent = JSON.stringify(conteudo)
+    }
+    </script>
+</head>
+<body>
+    <label>CEP:</label>
+    <input type="text" id="cep">
+    <button onclick="pesquisarCep()">Enviar</button>
+    <p id="resposta"></p>
+</body>
+</html>
